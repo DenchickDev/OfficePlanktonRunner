@@ -38,7 +38,7 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {         
-            if ((Input.touchCount > 0)|| (Input.GetKeyDown(KeyCode.Mouse0)))
+            if ((Input.touchCount > 0) || (Input.GetKeyDown(KeyCode.Mouse0)))
             {
                 TapToStart();
                 Debug.Log("Touch");
@@ -56,7 +56,7 @@ public class Menu : MonoBehaviour
         //rightPanel.SetActive(true);
         //leftPanel.SetActive(true);
         //startMenuScript.enabled = false;
-        this.enabled = false;
+        this.enabled = false; 
        
     }
 }
