@@ -37,17 +37,13 @@ public class Menu : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
-            if (Input.touchCount > 0)
+    {         
+            if ((Input.touchCount > 0)|| (Input.GetKeyDown(KeyCode.Mouse0)))
             {
                 TapToStart();
                 Debug.Log("Touch");
             }
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                TapToStart();
-                Debug.Log("clik");
-            }
+           
     }
 
     public void TapToStart()
@@ -58,8 +54,9 @@ public class Menu : MonoBehaviour
         counterPaper.SetActive(true);
         ñounterMoney.SetActive(false);
         //rightPanel.SetActive(true);
-        leftPanel.SetActive(true);
-        startMenuScript.enabled = false;
+        //leftPanel.SetActive(true);
+        //startMenuScript.enabled = false;
+        this.enabled = false;
        
     }
 }
