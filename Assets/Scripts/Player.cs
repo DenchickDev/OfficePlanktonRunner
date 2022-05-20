@@ -8,8 +8,8 @@ public class Player : MonoBehaviour, IBeginDragHandler, IDragHandler
     Rigidbody rb;
     public float speed;
     public Transform player;
-    // Start is called before the first frame update
 
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
