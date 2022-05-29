@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1391271812206957955}
+  - component: {fileID: 7830155104807851888}
   m_Layer: 0
   m_Name: Trap_2
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3153272306348959920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0419, y: 1.0419, z: 1.0419}
   m_Children:
   - {fileID: 7219850722840964012}
   - {fileID: 6070348438986152044}
@@ -37,6 +38,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7830155104807851888
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153272306348959920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5318418, y: 2.1284187, z: 3.0333555}
+  m_Center: {x: -2.4545069, y: 0.56421024, z: -1.7249426}
 --- !u!1001 &157587989785189391
 PrefabInstance:
   m_ObjectHideFlags: 0

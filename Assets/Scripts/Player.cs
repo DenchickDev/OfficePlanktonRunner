@@ -3,45 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour, IBeginDragHandler, IDragHandler 
+public class Player : MonoBehaviour
 {
     Rigidbody rb;
     public float speed;
-    public Transform player;
+    GameObject papperCounterObject;
+
+    GameObject mainCameraObject;
+    Main mainScript;
+    public bool isRun;
+    float targetX;
 
     // Start is called before the first frame update
     void Start()
     {
+        papperCounterObject = GameObject.Find("CountPapperText");
+        mainCameraObject = GameObject.Find("Main Camera");
+        mainScript = mainCameraObject.GetComponent<Main>();
         rb = GetComponent<Rigidbody>();
+        targetX = gameObject.transform.position.x;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    IEnumerator Run_Coroutine()
     {
-        // Постоянный бег
-        rb.AddForce(Vector3.forward * (speed * 100));
-     
-    }
+        isRun = true;
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        Vector2 delta = eventData.delta;
-        if (Mathf.Abs(delta.x)>Mathf.Abs(delta.y))
+
+        while (isRun)
         {
-            Debug.Log("Horisontal Swipe!");
-            Vector3 position = transform.position;
-            position.x += 1.5f * delta.x * 0.5f;
-            transform.position = position;
-        }
-        else
-        {
-            if (delta.y > 0) Debug.Log("Up");
-            else Debug.Log("Down");
+            rb.MovePosition(gameObject.transform.position + gameObject.transform.forward.normalized * Time.fixedDeltaTime * speed);
+            yield return new WaitForFixedUpdate();
         }
     }
 
-    void IDragHandler.OnDrag(PointerEventData eventData)
+    private void LateUpdate()
     {
-        throw new System.NotImplementedException();
+        if (isRun)
+        {
+            var point = gameObject.transform.position
+                + gameObject.transform.forward.normalized * Time.fixedDeltaTime * speed;
+            point.x = targetX;
+            rb.MovePosition(point);
+        }
+    }
+    public void AddMovePosition(Vector3 delta)
+    {
+        targetX += delta.x;
+    }
+
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Pappers")
+        {
+            Debug.Log("Косание");
+            Destroy(other.gameObject);
+            //other.GetComponent<Papper>().collisionPlayer();
+            mainScript.papperCounter();
+        }
+        if (other.gameObject.tag == "Finish")
+        {
+            mainScript.finalTrigger();
+        }
+
     }
 }
+
