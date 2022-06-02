@@ -1083,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3767748248224642046
 Transform:
   m_ObjectHideFlags: 0
@@ -1315,6 +1315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  isRun: 0
 --- !u!1 &3773081718997339340
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,7 +2802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3767316182446266586
 Transform:
   m_ObjectHideFlags: 0
@@ -2835,7 +2836,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2f834016e53f12c42a12baecd4450e34, type: 2}
+  - {fileID: 2100000, guid: 73749ee2da42e874191042f8dba9bedc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
