@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2966982, g: 0.6337091, b: 0.99371976, a: 1}
+  m_IndirectSpecularColor: {r: 0.2893028, g: 0.61854434, b: 0.9937528, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3268,6 +3268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Wall_Window_Blinds_Open_04 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1647468071285876, guid: 0c639f07af35ccf4b94da3f74b153ec6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4028474198191614, guid: 0c639f07af35ccf4b94da3f74b153ec6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5983,6 +5987,10 @@ PrefabInstance:
     - target: {fileID: 1596206821693626, guid: c6a3201f83518e641a35637c004fab21, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Wall_Baseboard_Window_04 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596206821693626, guid: c6a3201f83518e641a35637c004fab21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4641014891229494, guid: c6a3201f83518e641a35637c004fab21, type: 3}
       propertyPath: m_RootOrder
@@ -10509,6 +10517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: office_interior 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1392819333243746274, guid: 9ab5f8fcfdcefaf45902abf9bcf7f924, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1744325009804434353, guid: 9ab5f8fcfdcefaf45902abf9bcf7f924, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.76
@@ -12202,9 +12214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc16763413fc85944b8cdb94707c8003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftPanel: {fileID: 0}
   counterPaper: {fileID: 1515772539}
+  counterPaperText: {fileID: 0}
   "\u0441ounterMoney": {fileID: 1002731544}
+  "\u0441ounterMoneyText": {fileID: 0}
 --- !u!1001 &1472356470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17344,6 +17357,10 @@ PrefabInstance:
     - target: {fileID: 7192687702780858171, guid: ca3bdcae23c428a40b967920f2568d13, type: 3}
       propertyPath: m_Name
       value: Trap_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192687702780858171, guid: ca3bdcae23c428a40b967920f2568d13, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8589883604173101581, guid: ca3bdcae23c428a40b967920f2568d13, type: 3}
       propertyPath: m_RootOrder

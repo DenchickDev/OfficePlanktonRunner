@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29777944, g: 0.63406086, b: 0.99369437, a: 1}
+  m_IndirectSpecularColor: {r: 0.2893028, g: 0.61854434, b: 0.9937528, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12360,9 +12360,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc16763413fc85944b8cdb94707c8003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftPanel: {fileID: 0}
   counterPaper: {fileID: 1515772539}
+  counterPaperText: {fileID: 0}
   "\u0441ounterMoney": {fileID: 1002731544}
+  "\u0441ounterMoneyText": {fileID: 0}
 --- !u!1001 &1472356470
 PrefabInstance:
   m_ObjectHideFlags: 0
