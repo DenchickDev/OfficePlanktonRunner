@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6792320024894018705}
   m_Layer: 0
   m_Name: Trap_1
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,11 +44,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6405622851398288427}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6692963, y: 1.5387573, z: 1.4029655}
-  m_Center: {x: 12.591836, y: 34.72062, z: -44.67807}
+  m_Size: {x: 2.4033737, y: 1.8678589, z: 6.2231216}
+  m_Center: {x: 11.64399, y: 34.864555, z: -44.5997}
 --- !u!136 &1899012556615102493
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -58,11 +58,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 6405622851398288427}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.35411835
   m_Height: 1.8555908
   m_Direction: 1
-  m_Center: {x: 11.400092, y: 35.011223, z: -46.779423}
+  m_Center: {x: 11.400092, y: 35.011223, z: -46.81}
 --- !u!136 &6792320024894018705
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -72,11 +72,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 6405622851398288427}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.33561707
   m_Height: 2.1126328
   m_Direction: 1
-  m_Center: {x: 11.480928, y: 34.878323, z: -42.39986}
+  m_Center: {x: 11.480928, y: 34.878323, z: -42.3}
 --- !u!1001 &404654432070923287
 PrefabInstance:
   m_ObjectHideFlags: 0

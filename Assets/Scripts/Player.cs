@@ -59,7 +59,11 @@ public class Player : MonoBehaviour
             Debug.Log("Косание");
             Destroy(other.gameObject);
             //other.GetComponent<Papper>().collisionPlayer();
-            mainScript.papperCounter();
+            mainScript.recalculationOfPpaper();
+        }
+        if (other.gameObject.tag == "Trap")
+        {
+            mainScript.recalculationOfPpaperBecauseCollidTrap();
         }
         if (other.gameObject.tag == "Finish")
         {

@@ -22,7 +22,13 @@ public class Main : MonoBehaviour
     GameObject startMainObject;
     Main startMenuScript;
 
-    private int papper = 0;
+    private int papperCount = 0;
+
+    [SerializeField]
+    int conversionNumber = 0; 
+    [SerializeField]
+    int conversionNumberToTrap = 0;
+
 
 
     // Start is called before the first frame update
@@ -76,30 +82,29 @@ public class Main : MonoBehaviour
     {
         //counterPaper.GetComponent<text
     }
-    public void papperCounter()
+    public void recalculationOfPpaper()
     {
-        papper++;
-        counterPaperText.text = GetCountUI().ToString();
+        papperCount++;
+        counterPaperText.text =papperCount.ToString();
     }
-    public int GetCountUI()
+    public void recalculationOfPpaperBecauseCollidTrap()
     {
-        return papper;
+        papperCount=-conversionNumberToTrap;
+        counterPaperText.text = papperCount.ToString();
     }
+    
         public void finalTrigger()
     {
         // òóò äîëæíà áûòü ìåõàíèêà çàïóñêà ôèíàëüíîé àíèìàöèè 
         ñounterMoney.SetActive(true);
         playerScript.isRun = false;
         //çàïóñê àíèìàöèè ïåðñåñ÷åòà
-        ñounterMoneyText.text = counterPaperText.text;
-        counterPaperText.text = "0";
+        conversionsPaperInMoney();
 
     }
-    /* private void conversions()
-       {
-       papper = counterPaperText.text
-
-       ñounterMoneyText.text = counterPaperText.text * conversionNumber;
-           counterPaperText = "0";
-   }*/
+     private void conversionsPaperInMoney()
+   {
+        ñounterMoneyText.text = (papperCount * conversionNumber).ToString();
+        papperCount = 0;
+   }
 }
