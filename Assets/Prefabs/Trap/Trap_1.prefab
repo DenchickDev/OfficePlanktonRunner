@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 599335786313479478}
   - component: {fileID: 1899012556615102493}
   - component: {fileID: 6792320024894018705}
+  - component: {fileID: 923278727089988367}
   m_Layer: 0
   m_Name: Trap_1
   m_TagString: Trap
@@ -77,6 +78,19 @@ CapsuleCollider:
   m_Height: 2.1126328
   m_Direction: 1
   m_Center: {x: 11.480928, y: 34.878323, z: -42.3}
+--- !u!65 &923278727089988367
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405622851398288427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4033737, y: 1.8678589, z: 6.2231216}
+  m_Center: {x: 11.64399, y: 34.864555, z: -44.5997}
 --- !u!1001 &404654432070923287
 PrefabInstance:
   m_ObjectHideFlags: 0

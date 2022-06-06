@@ -89,7 +89,7 @@ public class Main : MonoBehaviour
     }
     public void recalculationOfPpaperBecauseCollidTrap()
     {
-        papperCount=-conversionNumberToTrap;
+        papperCount -= conversionNumberToTrap;
         counterPaperText.text = papperCount.ToString();
     }
     
