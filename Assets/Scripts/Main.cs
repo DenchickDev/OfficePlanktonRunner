@@ -7,20 +7,32 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
     GameObject tapTuStartButton;
-    //GameObject levelPanel;
+    [SerializeField]
+    GameObject finalPanel;
     //public GameObject leftPanel;
     //public GameObject rightPanel;
 
-    public GameObject counterPaper;
-    public Text counterPaperText;
+    [SerializeField]
+    private GameObject counterPaper;
+    [SerializeField]
+    private Text counterPaperText;
 
-    public GameObject ñounterMoney;
-    public Text ñounterMoneyText; 
+    [SerializeField]
+    private GameObject ñounterMoney;
+    [SerializeField]
+    private Text ñounterMoneyText;
+    [SerializeField]
+    private float speedCounterMoney;
+    [SerializeField]
+    GameObject newCounterMoneyPointTransformObject;
+    Transform newCounterMoneyPointTransform;
+    bool ñounterMoneyComeToCenter = false;
+
+    GameObject joystickPanelObject;
+    UISwipeHandler joystickScript;
+
     private GameObject player;
     private Player playerScript;
-    
-    GameObject startMainObject;
-    Main startMenuScript;
 
     private int papperCount = 0;
 
@@ -34,20 +46,15 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        Time.timeScale = 0;
+       
         tapTuStartButton = GameObject.Find("TapToStartButton");
-        // levelPanel = GameObject.Find("LevelPanel");
-        startMainObject = GameObject.Find("Main Camera");
-        startMenuScript = startMainObject.GetComponent<Main>();
+        //newCounterMoneyPointTransformObject = GameObject.Find("newCounterMoneyPointTransformObject");
+        newCounterMoneyPointTransform = newCounterMoneyPointTransformObject.GetComponent<Transform>();
+       // finalPanel = GameObject.Find("FinalPanel");
+        joystickPanelObject = GameObject.Find("JoystickPanel");
+        joystickScript = joystickPanelObject.GetComponent<UISwipeHandler>();
         player = GameObject.Find("Player");
         playerScript = player.GetComponent<Player>();
-
-        //leftPanel = GameObject.Find("LeftPanel");
-        //rightPanel = GameObject.Find("RightPanel");
-        //counterPaper = GameObject.Find("CountMoneyPanel");
-        //ñounterMoney = GameObject.Find("CountPaperPanel");
-
-
     }
     void Start()
     {
@@ -64,10 +71,18 @@ public class Main : MonoBehaviour
         }
 
     }
+    private void LateUpdate()
+    {
+        if(ñounterMoneyComeToCenter == true)
+        {
+            ñounterMoney.transform.position = Vector3.MoveTowards(transform.position, newCounterMoneyPointTransform.position, speedCounterMoney * Time.deltaTime);
+        }
+        
+    }
 
     public void TapToStart()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         tapTuStartButton.SetActive(false);
         playerScript.isRun = true;
         counterPaper.SetActive(true);
@@ -95,11 +110,16 @@ public class Main : MonoBehaviour
     
         public void finalTrigger()
     {
-        // òóò äîëæíà áûòü ìåõàíèêà çàïóñêà ôèíàëüíîé àíèìàöèè 
-        ñounterMoney.SetActive(true);
-        playerScript.isRun = false;
+        joystickScript.enabled = false;
+        // playerScript.comeToBoss();
         //çàïóñê àíèìàöèè ïåğñåñ÷åòà
+        finalPanel.SetActive(true);
+        ñounterMoneyComeToCenter = true; ;
+        ñounterMoney.SetActive(true);
         conversionsPaperInMoney();
+       
+
+
 
     }
      private void conversionsPaperInMoney()
@@ -107,4 +127,8 @@ public class Main : MonoBehaviour
         ñounterMoneyText.text = (papperCount * conversionNumber).ToString();
         papperCount = 0;
    }
+
+
+    
+    
 }
