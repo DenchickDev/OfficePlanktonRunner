@@ -34,10 +34,10 @@ public class Main : MonoBehaviour
     private GameObject player;
     private Player playerScript;
 
-    private int papperCount = 0;
+    public int papperCount { get; private set; } = 0;
 
     [SerializeField]
-    int conversionNumber = 0; 
+    int conversionNumber = 0;
     [SerializeField]
     int conversionNumberToTrap = 0;
 
@@ -46,11 +46,11 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-       
+
         tapTuStartButton = GameObject.Find("TapToStartButton");
         //newCounterMoneyPointTransformObject = GameObject.Find("newCounterMoneyPointTransformObject");
         newCounterMoneyPointTransform = newCounterMoneyPointTransformObject.GetComponent<Transform>();
-       // finalPanel = GameObject.Find("FinalPanel");
+        // finalPanel = GameObject.Find("FinalPanel");
         joystickPanelObject = GameObject.Find("JoystickPanel");
         joystickScript = joystickPanelObject.GetComponent<UISwipeHandler>();
         player = GameObject.Find("Player");
@@ -73,11 +73,11 @@ public class Main : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if(ñounterMoneyComeToCenter == true)
+        if (ñounterMoneyComeToCenter == true)
         {
             ñounterMoney.transform.position = Vector3.MoveTowards(transform.position, newCounterMoneyPointTransform.position, speedCounterMoney * Time.deltaTime);
         }
-        
+
     }
 
     public void TapToStart()
@@ -100,15 +100,15 @@ public class Main : MonoBehaviour
     public void recalculationOfPpaper()
     {
         papperCount++;
-        counterPaperText.text =papperCount.ToString();
+        counterPaperText.text = papperCount.ToString();
     }
     public void recalculationOfPpaperBecauseCollidTrap()
     {
         papperCount -= conversionNumberToTrap;
         counterPaperText.text = papperCount.ToString();
     }
-    
-        public void finalTrigger()
+
+    public void finalTrigger()
     {
         joystickScript.enabled = false;
         // playerScript.comeToBoss();
@@ -117,18 +117,18 @@ public class Main : MonoBehaviour
         ñounterMoneyComeToCenter = true; ;
         ñounterMoney.SetActive(true);
         conversionsPaperInMoney();
-       
+
 
 
 
     }
-     private void conversionsPaperInMoney()
-   {
+    private void conversionsPaperInMoney()
+    {
         ñounterMoneyText.text = (papperCount * conversionNumber).ToString();
         papperCount = 0;
-   }
+    }
 
 
-    
-    
+
+
 }

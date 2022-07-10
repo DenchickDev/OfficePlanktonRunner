@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
+    
+  
     Rigidbody rb;
     public float speed;
     GameObject papperCounterObject;
@@ -15,9 +17,14 @@ public class Player : MonoBehaviour
     GameObject mainCameraObject;
     Main mainScript;
 
-    bool startingTheFinalScene = false;
+    private bool startingTheFinalScene = false;
     public bool isRun = false;
     float targetX;
+    [SerializeField]
+    private int passingAmountOfPaper = 10;
+
+    private GameObject Boss;
+    private Boss bossScript;
 
     public enum State
     {
@@ -42,13 +49,16 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Текущее состояние
     /// </summary>
-    public State state = State.Idle;
+    private State state  = State.Idle;
 
     Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        Boss = GameObject.Find("SM_Chr_Boss_Male_01");
+        bossScript = Boss.GetComponent<Boss>();
         papperCounterObject = GameObject.Find("CountPapperText");
         mainCameraObject = GameObject.Find("Main Camera");
         mainScript = mainCameraObject.GetComponent<Main>();
@@ -61,7 +71,7 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        anim.SetInteger("stateAnim",(int)state);
+        anim.SetInteger("stateAnim", (int)state);
     }
 
     /*IEnumerator Run_Coroutine()
@@ -80,20 +90,50 @@ public class Player : MonoBehaviour
     {
         if (isRun == true)
         {
+            calculateState();
             var point = gameObject.transform.position + gameObject.transform.forward.normalized * Time.fixedDeltaTime * speed;
             point.x = targetX;
             rb.MovePosition(point);
         }
-        if(startingTheFinalScene == true)
+        if (startingTheFinalScene == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, finalPointTransform.position, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, finalPointTransform.position, (speed/2) * Time.deltaTime);
+
+            if (transform.position == finalPointTransform.position)
+            {
+                calculateState();
+            }
+             
         }
     }
     public void AddMovePosition(Vector3 delta)
     {
         targetX += delta.x;
     }
+    private void calculateState()
+    {
+        if (isRun)
+        {
+            state = State.Run;
+        }
+        else
+        if (startingTheFinalScene)
+        {
+            if (mainScript.papperCount < passingAmountOfPaper)
+            {
+                state = State.finalDefeat;
+                bossScript.startAngry();
+                //speed /= 2;
 
+            }
+            else if (mainScript.papperCount >= passingAmountOfPaper)
+            {
+                state = State.finalWin;
+                bossScript.startPraise();
+            }
+        }
+
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -110,11 +150,14 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.tag == "Finish")
         {
-            mainScript.finalTrigger();
+           // mainScript.finalTrigger();
             startingTheFinalScene = true;
             isRun = false;
         }
-
+      
+    }
+    public void triggerFinalScene()
+    {
+        mainScript.finalTrigger();
     }
 }
-
